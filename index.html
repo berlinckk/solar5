@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Solar da Beira Hotel | São Francisco do Sul - Reserva Direta</title>
+  <meta name="description" content="Solar da Beira Hotel: 16 anos de tradição à beira da Baía da Babitonga. Quartos com vista, café da manhã incluso e reserva direta." />
+  <meta property="og:title" content="Solar da Beira Hotel – Seu hotel à beira-mar em São Francisco do Sul" />
+  <meta property="og:description" content="Reserve direto e garanta o melhor preço. Café da manhã incluso, Wi-Fi, pet friendly e localização privilegiada." />
+  <meta property="og:image" content="solar/faixadaprincipalfrente.jpeg" />
+  <link rel="icon" href="solar/logotransparente.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .glass { background: rgba(255,255,255,0.75); backdrop-filter: blur(6px); }
+    .primary { background: linear-gradient(90deg,#0284c7,#38bdf8); }
+    .whatsapp-float {
+      position: fixed; bottom: 20px; right: 20px; z-index: 50;
+      background-color: #25d366; color: white; border-radius: 50%;
+      width: 58px; height: 58px; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0;
+      width: 100%; height: 100%; background-color: rgba(0,0,0,0.85);
+    }
+    .modal-content { margin: 5% auto; display: block; width: 90%; max-width: 600px; border-radius: 10px; }
+    .close { position: absolute; top: 20px; right: 35px; color: white; font-size: 40px; cursor: pointer; }
+  </style>
+</head>
+<body class="antialiased text-slate-800">
+
+<!-- HEADER -->
+<header class="fixed w-full z-40 bg-white/80 backdrop-blur shadow-sm">
+  <div class="max-w-6xl mx-auto flex items-center justify-between p-3">
+    <img src="solar/logotransparente.png" alt="Solar da Beira" class="w-36 object-contain"/>
+    <div class="flex items-center gap-3">
+      <a href="https://wa.me/47989103897" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded shadow">WhatsApp</a>
+      <a href="https://hbook.hsystem.com.br/booking?companyId=5fc4f62cab41d41894849261" target="_blank" class="ml-2 inline-flex items-center gap-2 px-4 py-2 bg-amber-500 text-white rounded shadow">Reserve Agora</a>
+    </div>
+  </div>
+</header>
+
+<main class="pt-24">
+
+  <!-- HERO -->
+  <section class="relative h-[70vh] md:h-[80vh]">
+    <img src="solar/varandapordosol.jpeg" alt="Varanda ao pôr do sol" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="absolute inset-0 flex items-center">
+      <div class="max-w-6xl mx-auto px-6 text-white">
+        <div class="w-full md:w-2/3 lg:w-1/2 glass p-6 rounded-lg">
+          <h1 class="text-3xl md:text-4xl font-bold">Solar da Beira</h1>
+          <p class="mt-2 text-sm md:text-base">Conforto e hospitalidade à beira da Baía da Babitonga. Reserve direto e garanta o melhor preço.</p>
+
+          <form action="https://hbook.hsystem.com.br/booking" method="get" class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input name="checkin" type="date" class="p-2 rounded border" required />
+            <input name="checkout" type="date" class="p-2 rounded border" required />
+            <select name="adults" class="p-2 rounded border">
+              <option>1 Adulto</option><option selected>2 Adultos</option><option>3 Adultos</option>
+            </select>
+            <select name="children" class="p-2 rounded border">
+              <option>0 Crianças</option><option>1 Criança</option><option>2 Crianças</option>
+            </select>
+            <button type="submit" class="sm:col-span-2 mt-2 px-4 py-2 bg-amber-500 rounded text-white font-semibold">Consultar disponibilidade</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACOMODAÇÕES -->
+  <section class="bg-slate-50 py-12">
+    <div class="max-w-6xl mx-auto px-6">
+      <h3 class="text-2xl font-bold">Acomodações</h3>
+      <p class="text-slate-600 mt-2">Escolha entre nossas categorias e reserve direto com o melhor preço.</p>
+
+      <div class="mt-6 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+        <article class="bg-white shadow rounded overflow-hidden cursor-pointer" onclick="openModal(['solar/quartoazulescuro6.jpeg','solar/quartoazulescuro9.jpeg','solar/quartoazulclaro44.jpeg','solar/azulclaroquarto.jpeg'])">
+          <img src="solar/quartoazulescuro6.jpeg" alt="Quarto Luxo" class="w-full h-44 object-cover" />
+          <div class="p-4">
+            <h4 class="font-semibold">Quarto Luxo</h4>
+            <p class="text-sm text-slate-600 mt-2">Varanda, cama queen e vista parcial da baía.</p>
+          </div>
+        </article>
+
+        <article class="bg-white shadow rounded overflow-hidden cursor-pointer" onclick="openModal(['solar/suitemaster.jpeg','solar/banheiromaster.jpeg','solar/cozinhamaster.jpeg','solar/salamaster3.jpeg'])">
+          <img src="solar/suitemaster.jpeg" alt="Suíte Master" class="w-full h-44 object-cover" />
+          <div class="p-4">
+            <h4 class="font-semibold">Suíte Master</h4>
+            <p class="text-sm text-slate-600 mt-2">Vista panorâmica e conforto máximo.</p>
+          </div>
+        </article>
+
+        <article class="bg-white shadow rounded overflow-hidden cursor-pointer" onclick="openModal(['solar/quartocamacinza.jpeg','solar/quartobrancorosa.jpg','solar/banheiro4.jpeg','solar/mesaquarto.jpeg'])">
+          <img src="solar/quartocamacinza.jpeg" alt="Executiva" class="w-full h-44 object-cover" />
+          <div class="p-4">
+            <h4 class="font-semibold">Executiva</h4>
+            <p class="text-sm text-slate-600 mt-2">Ideal para negócios, com Wi-Fi e ar-condicionado.</p>
+          </div>
+        </article>
+
+        <article class="bg-white shadow rounded overflow-hidden cursor-pointer" onclick="openModal(['solar/quartobranco.jpeg','solar/quartocamarosa%202.jpg','solar/recepcaobancosolardabeira.jpg','solar/saladeestar.jpg'])">
+          <img src="solar/quartobranco.jpeg" alt="Suíte Família" class="w-full h-44 object-cover" />
+          <div class="p-4">
+            <h4 class="font-semibold">Suíte Família</h4>
+            <p class="text-sm text-slate-600 mt-2">Espaçosa, perfeita para famílias.</p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="max-w-6xl mx-auto px-6 py-12">
+    <h3 class="text-2xl font-bold mb-4">Galeria</h3>
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-3">
+      <img src="solar/faixadaprincipalfrente.jpeg" class="rounded w-full h-44 object-cover" alt="Fachada principal" />
+      <img src="solar/recepcao.jpg" class="rounded w-full h-44 object-cover" alt="Recepção" />
+      <img src="solar/restauranteprato.jpeg" class="rounded w-full h-44 object-cover" alt="Restaurante" />
+      <img src="solar/cafedamanhamesapaisagem.jpg" class="rounded w-full h-44 object-cover" alt="Café da manhã" />
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="primary text-white py-12">
+    <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6 items-center">
+      <div>
+        <h3 class="text-2xl font-bold">Fale conosco</h3>
+        <p class="mt-2">WhatsApp: <a href="https://wa.me/47989103897" target="_blank" class="underline">(47) 98910-3897</a></p>
+        <p class="mt-2">Email: <a href="mailto:reservasolardabeira@gmail.com" class="underline">reservasolardabeira@gmail.com</a></p>
+        <div class="mt-4">
+          <iframe src="https://www.google.com/maps?q=Solar%20da%20Beira%20Hotel%20São%20Francisco%20do%20Sul&output=embed" width="100%" height="220" style="border:0; border-radius:10px;" allowfullscreen loading="lazy"></iframe>
+        </div>
+      </div>
+
+      <div class="bg-white rounded p-4 text-slate-800">
+        <h4 class="font-semibold">Envie uma mensagem</h4>
+        <form action="mailto:reservasolardabeira@gmail.com" method="post" encType="text/plain" class="mt-3 grid gap-2">
+          <input name="nome" placeholder="Seu nome" class="p-2 border rounded" required />
+          <input name="email" placeholder="Seu email" class="p-2 border rounded" required />
+          <textarea name="mensagem" rows="4" placeholder="Mensagem" class="p-2 border rounded" required></textarea>
+          <div class="flex gap-2">
+            <a href="https://hbook.hsystem.com.br/booking?companyId=5fc4f62cab41d41894849261" class="flex-1 px-3 py-2 bg-amber-500 text-white rounded text-center">Reservar</a>
+            <button type="submit" class="flex-1 px-3 py-2 border rounded">Enviar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-white py-6">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+    <img src="solar/logotransparente.png" alt="Solar da Beira" class="w-28 object-contain" />
+    <div class="text-sm">© 2025 Solar da Beira • Todos os direitos reservados</div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/47989103897" target="_blank" class="whatsapp-float">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="w-8 h-8" />
+</a>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+  <span class="close" onclick="closeModal()">&times;</span>
+  <img id="modalImg" class="modal-content" src="">
+</div>
+
+<script>
+  let currentImages = [], currentIndex = 0;
+  function openModal(imgs) {
+    currentImages = imgs; currentIndex = 0;
+    document.getElementById("modalImg").src = currentImages[currentIndex];
+    document.getElementById("modal").style.display = "block";
+  }
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+  document.getElementById("modal").onclick = function(e) {
+    if (e.target.id === "modalImg") {
+      currentIndex = (currentIndex + 1) % currentImages.length;
+      document.getElementById("modalImg").src = currentImages[currentIndex];
+    } else closeModal();
+  }
+</script>
+
+</body>
+</html>
